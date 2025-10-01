@@ -1,6 +1,6 @@
 # Daily task manager
 
-A React application for managing your daily task, just add the task manage it and delete as per requirement.
+A React application for managing your daily task, add, search or remove your tasks at one place  as per requirement.
 
 ## Features
 - Add, edit, and delete tasks
@@ -16,6 +16,10 @@ A React application for managing your daily task, just add the task manage it an
 - Tailwind CSS
 - React Hook Form
 - ESLint
+
+## Sample preview
+
+![Sample Preview](/public/screenshot.png)
 
 ## Getting Started
 

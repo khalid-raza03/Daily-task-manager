@@ -1,0 +1,19 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.scrollbar-custom::-webkit-scrollbar {
+  width: 8px;
+}
+.scrollbar-custom::-webkit-scrollbar-thumb {
+  background: #eaebec; /* Tailwind gray-500 */
+  border-radius: 9999px;
+}
+
+.text-shadow {
+  text-shadow: 0 0 4px #ffffff4e, 0 0 8px #ffffff4e, 0 0 12px #ffffff4e;
+}

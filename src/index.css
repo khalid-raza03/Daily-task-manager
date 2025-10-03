@@ -3,17 +3,14 @@
 @tailwind utilities;
 
 * {
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
 .scrollbar-custom::-webkit-scrollbar {
   width: 8px;
 }
 .scrollbar-custom::-webkit-scrollbar-thumb {
-  background: #eaebec; /* Tailwind gray-500 */
+  background: #b2b3b4; 
   border-radius: 9999px;
 }
 
-.text-shadow {
-  text-shadow: 0 0 4px #ffffff4e, 0 0 8px #ffffff4e, 0 0 12px #ffffff4e;
-}

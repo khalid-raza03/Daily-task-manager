@@ -59,10 +59,10 @@ function EditableTodoList({ darkMode }) {
       <div className="items-center flex-col flex gap-4   md:gap-6 justify-center max-w-3xl w-full relative p-2 sm:p-4 md:p-6">
         <h2
           className={`text-2xl sm:text-4xl lg:text-5xl font-bold tracking-wide ${
-            darkMode ? "text-emerald-300" : "text-emerald-500"
+            darkMode ? "text-purple-300" : "text-purple-500"
           } mb-3 font-serif `}
         >
-          Todo List
+          To-do List
         </h2>
 
         {/* warning or success message */}
@@ -96,13 +96,13 @@ function EditableTodoList({ darkMode }) {
           editingTodo={editingIndex !== null ? todos[editingIndex] : null}
           onUpdateTodo={updateTodo}
           onCancelEdit={cancelEdit}
-
+          darkMode={darkMode}
         />
 
         {/* todo list */}
         <ul
-          className={`mt-2 rounded-md bg-green-300 p-3 sm:px-4 sm:py-6 w-full h-full max-h-[340px]  sm:max-h-[450px] overflow-y-scroll scrollbar-custom shadow-lg ${
-            darkMode ? "shadow-white" : "shadow-slate-500"
+          className={`mt-2 rounded-md ${darkMode ? "bg-[#1E3A8A]" : "bg-[#E9D5FF]"}  p-3 sm:px-4 sm:py-6 w-full h-full max-h-[340px]  sm:max-h-[450px] overflow-y-scroll scrollbar-custom shadow-lg ${
+            darkMode ? "shadow-[#22d3ee]" : "shadow-purple-400"
           }`}
         >
           {todos.length === 0 ? (
@@ -115,12 +115,12 @@ function EditableTodoList({ darkMode }) {
                 key={index}
                 className="border-b border-white p-2 flex gap-3 justify-between items-center"
               >
-                <div className="flex-1">
-                  <div className="text-black text-base sm:text-lg font-semibold text-ellipsis overflow-hidden whitespace-nowrap">
+                <div className="flex-1 flex flex-col gap-y-3">
+                  <div className={`${darkMode ? "text-[#ffffff]" : "text-[#3B0764]"} text-base sm:text-lg font-semibold text-ellipsis overflow-hidden whitespace-nowrap`}>
                     ({index + 1}) {todo.name}
                   </div>
                   {todo.description && (
-                    <div className="text-slate-600  italic text-xs sm:text-sm text-wrap max-w-md mt-3 leading-6 tracking-wide">
+                    <div className={`${darkMode ? "text-slate-300" : "text-[#69239e]"}  italic text-xs sm:text-sm text-wrap max-w-md mt-3 leading-6 tracking-wide`}>
                       {todo.description}
                     </div>
                   )}
@@ -143,7 +143,7 @@ function EditableTodoList({ darkMode }) {
                 </button>
                 <button
                   onClick={() => removeTodo(index)}
-                  className="bg-white border border-emerald-600 text-white p-3 rounded-full transition-all duration-300 ease-in-out flex-shrink-0"
+                  className="bg-white border border-purple-600 text-white p-3 rounded-full transition-all duration-300 ease-in-out flex-shrink-0"
                 >
                   <img
                     src="/dustbin.svg"

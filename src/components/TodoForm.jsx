@@ -8,6 +8,7 @@ function TodoForm({
   editingTodo,
   onUpdateTodo,
   onCancelEdit,
+  darkMode,
 }) {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isAnimating, setIsAnimating] = useState(false);
@@ -76,7 +77,7 @@ function TodoForm({
         <div className={`fixed inset-0 flex items-center justify-center z-50 transition-all duration-300 ease-in-out ${
           isAnimating ? 'opacity-100 backdrop-blur-sm' : 'opacity-0'
         }`}>
-          <div className={`flex gap-5 w-[90%] sm:w-3/4 lg:w-1/2 items-center flex-wrap justify-between flex-col backdrop-blur-lg bg-emerald-500/70 border border-white/20 shadow-xl px-4 py-16 rounded-lg relative transition-all duration-300 ease-in-out transform ${
+          <div className={`flex gap-5 w-[90%] sm:w-3/4 lg:w-1/2 items-center flex-wrap justify-between flex-col backdrop-blur-lg ${darkMode ? 'bg-purple-500/70' : 'bg-purple-600/70'} border border-white/20 shadow-xl px-4 py-16 rounded-lg relative transition-all duration-300 ease-in-out transform ${
             isAnimating ? 'scale-100 opacity-100' : 'scale-95 opacity-0'
           }`}>
             <button
@@ -100,7 +101,7 @@ function TodoForm({
               </label>
                 <input
               name="todoInput"
-              className="px-4 py-3  w-full rounded-xl border sm:text-sm text-xs border-green-400 flex-1 focus:outline-none focus:ring-2 focus:ring-green-600"
+              className="px-4 py-3 placeholder:text-purple-600 text-purple-800 bg-purple-300  w-full rounded-xl border sm:text-lg text-sm  border-purple-400 flex-1 focus:outline-none focus:ring-2 focus:ring-purple-600"
               value={name}
               placeholder="Enter your todo name..."
               onChange={(e) => setName(e.target.value)}
@@ -117,7 +118,7 @@ function TodoForm({
 
                 <input
               name="todoInput"
-              className="px-4 py-5  w-full rounded-xl border sm:text-sm text-xs  border-green-400 flex-1 focus:outline-none focus:ring-2 focus:ring-green-600"
+              className="px-4 py-5 placeholder:text-purple-600 text-purple-800 bg-purple-300  w-full rounded-xl border sm:text-lg text-sm  border-purple-400 flex-1 focus:outline-none focus:ring-2 focus:ring-purple-600"
               value={desc}
               placeholder="Enter todo description..."
               onChange={(e) => setDesc(e.target.value)}
@@ -137,16 +138,16 @@ function TodoForm({
               value={deadline}
               onChange={(e) => setDeadline(e.target.value)}
               placeholder="Set deadline of your todo..."
-              className="px-4 py-3 w-full rounded-xl border sm:text-sm text-xs text-[#26a1f4] font-bold  border-green-400 flex-1 focus:outline-none focus:ring-2 focus:ring-green-600"
+              className="px-4 py-3 w-full rounded-xl border text-sm sm:text-lg  placeholder:text-purple-600 text-purple-800 bg-purple-300 font-bold  border-purple-400 flex-1 focus:outline-none focus:ring-2 focus:ring-purple-600"
             />
             </div>
          
             <div className="flex gap-2">
               <button
                 onClick={handleSubmit}
-                className="rounded-lg px-8 py-2 bg-emerald-600/80 text-white border border-emerald-500 hover:bg-white hover:text-emerald-500  transition-all duration-300 ease-in-out hover:scale-90 "
+                className="rounded-lg px-8 py-2 bg-purple-800/80 text-white border border-purple-500 hover:bg-white hover:text-purple-500  transition-all duration-300 ease-in-out hover:scale-90 "
               >
-                {editingTodo ? "Update" : "Add"}
+                {editingTodo ? "Update" : "ADD TODO"}
               </button>
               {editingTodo && (
                 <button

@@ -10,7 +10,7 @@
   width: 8px;
 }
 .scrollbar-custom::-webkit-scrollbar-thumb {
-  background: #b2b3b4; 
+  background: rgb(233, 186, 233); 
   border-radius: 9999px;
 }
 

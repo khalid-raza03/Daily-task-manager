@@ -18,7 +18,7 @@ function App() {
       <Navbar darkMode={darkMode} setDarkMode={setDarkMode} />
       <EditableTodoList darkMode={darkMode} />
       
-      <div className="text-center text-sm sm:text-md text-gray-500 dark:text-gray-300 mt-10 fixed bottom-8">
+      <div className="text-center text-xs sm:text-md text-gray-600 mt-10 fixed bottom-8 bg-white rounded-2xl px-6 py-2">
         <p>Made with ❤️ by <a className="text-[#26a1f4] font-bold" target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/in/khalid-raja-0aa797187/">Khalid Raja</a></p>
       </div>
     </div>

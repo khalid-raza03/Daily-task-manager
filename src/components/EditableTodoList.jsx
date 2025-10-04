@@ -53,12 +53,12 @@ function EditableTodoList({ darkMode }) {
   return (
     <div
       className={`container mx-auto w-full flex justify-center transition-all duration-700 ease-in-out ${
-        darkMode ? "pt-6" : "pt-3"
+        darkMode ? "pt-4" : "pt-3"
       } `}
     >
-      <div className="items-center flex-col flex gap-10   md:gap-6 justify-center max-w-3xl w-full relative p-2 sm:p-4 md:p-6">
+      <div className="items-center flex-col flex gap-4   md:gap-6 justify-center max-w-3xl w-full relative p-2 sm:p-4 md:p-6">
         <h2
-          className={`text-lg sm:text-4xl lg:text-5xl font-bold tracking-wide ${
+          className={`text-2xl sm:text-4xl lg:text-5xl font-bold tracking-wide ${
             darkMode ? "text-emerald-300" : "text-emerald-500"
           } mb-3 font-serif `}
         >
@@ -68,7 +68,7 @@ function EditableTodoList({ darkMode }) {
         {/* warning or success message */}
         {message && (
           <span
-            className={`flex justify-between text-left text-sm w-3/4 px-2 py-1 rounded text-white transition-all duration-300 ease-in-out transform absolute top-14 sm:-top-2 left-1/2 -translate-x-1/2 z-10
+            className={`flex justify-between text-left text-xs sm:text-sm w-[90%] sm:w-3/4 px-2 py-1 rounded text-white transition-all duration-300 ease-in-out transform absolute top-14 sm:-top-2 left-1/2 -translate-x-1/2 z-10
        ${message.type === "success" ? "bg-green-500" : "bg-red-500"}
        ${
          showMessage
@@ -101,7 +101,7 @@ function EditableTodoList({ darkMode }) {
 
         {/* todo list */}
         <ul
-          className={`mt-2 rounded-md bg-green-300 px-4 py-6 w-full h-full max-h-[450px] overflow-y-scroll scrollbar-custom shadow-lg ${
+          className={`mt-2 rounded-md bg-green-300 p-3 sm:px-4 sm:py-6 w-full h-full max-h-[340px]  sm:max-h-[450px] overflow-y-scroll scrollbar-custom shadow-lg ${
             darkMode ? "shadow-white" : "shadow-slate-500"
           }`}
         >

@@ -50,6 +50,8 @@ function TodoForm({
         type: "blank",
       });
       setShowMessage(true);
+      setIsAnimating(false);
+      setTimeout(() => setIsModalOpen(false), 300);
       setTimeout(() => setShowMessage(false), 3000);
     }
   };
@@ -66,7 +68,7 @@ function TodoForm({
           setIsModalOpen(true);
           setTimeout(() => setIsAnimating(true), 10);
         }}
-        className=" hover:scale-125 transition-transform duration-300 ease-in-out fixed bottom-10 right-2"
+        className=" hover:scale-125 transition-transform duration-300 ease-in-out fixed bottom-10 right-4"
       >
         <img src="/plus.png" alt="Add Todo" className="w-12 h-12  bg-white p-1 rounded-full" />
       </button>

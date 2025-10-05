@@ -13,7 +13,7 @@ function Navbar({darkMode, setDarkMode}) {
           </li>
           <li className={`text-md py-8 px-2 text-[#E0F2FE] ${
             darkMode ? "hover:bg-[#1E293B]" : "hover:bg-[#9a69ee]"} cursor-pointer transition-all ease-in-out duration-300 font-semibold `}>
-             <a target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/in/khalid-raja-0aa797187/">About Dev</a>
+             <a target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/in/khalid-raja-0aa797187/">About </a>
           </li>
           <li className={`text-md py-8 px-2 text-[#E0F2FE] ${
             darkMode ? "hover:bg-[#1E293B]" : "hover:bg-[#9a69ee]"} cursor-pointer transition-all ease-in-out duration-300 font-semibold `}>

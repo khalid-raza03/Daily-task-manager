@@ -9,6 +9,7 @@ function TodoForm({
   onUpdateTodo,
   onCancelEdit,
   darkMode,
+  generateId,
 }) {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isAnimating, setIsAnimating] = useState(false);
@@ -31,7 +32,7 @@ function TodoForm({
 
   const handleSubmit = () => {
     if (name && desc) {
-      const todoData = { name, description: desc, deadline };
+      const todoData = { id: generateId(), name, description: desc, deadline, completed: false };
       if (editingTodo) {
         onUpdateTodo(todoData);
       } else {
@@ -69,7 +70,7 @@ function TodoForm({
           setIsModalOpen(true);
           setTimeout(() => setIsAnimating(true), 10);
         }}
-        className=" hover:scale-125 transition-transform duration-300 ease-in-out fixed bottom-10 right-4"
+        className=" hover:scale-125 transition-transform duration-300 ease-in-out fixed bottom-10 right-4 z-50"
       >
         <img src="/plus.png" alt="Add Todo" className="w-12 h-12  bg-white p-1 rounded-full" />
       </button>
@@ -152,7 +153,7 @@ function TodoForm({
               {editingTodo && (
                 <button
                   onClick={handleCancel}
-                  className="rounded-md px-6 py-1 bg-gray-400 text-white border border-gray-400 transition-all duration-300 ease-in-out hover:scale-95 hover:bg-white hover:text-gray-400"
+                  className="rounded-md px-6 py-1 bg-blue-300 text-white border border-gray-400 transition-all duration-300 ease-in-out hover:scale-95 hover:bg-blue-400 hover:text-gray-600"
                 >
                   Cancel
                 </button>

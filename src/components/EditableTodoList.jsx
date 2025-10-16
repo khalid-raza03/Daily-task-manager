@@ -83,7 +83,7 @@ function EditableTodoList({ darkMode }) {
     >
       <div className="items-center flex-col flex gap-4   md:gap-6 justify-center max-w-3xl w-full relative p-2 sm:p-4 md:p-6">
         <h2
-          className={`text-2xl sm:text-4xl lg:text-5xl font-bold tracking-wide bg-gradient-to-r from-purple-600 to-[#26a1f4] text-transparent bg-clip-text mb-3 font-serif `}
+          className={`text-2xl sm:text-4xl lg:text-5xl font-bold tracking-wide bg-gradient-to-r from-[#fb9005d7]  to-[#f7c380] text-transparent bg-clip-text mb-3 font-serif `}
         >
           To-do List
         </h2>
@@ -130,39 +130,41 @@ function EditableTodoList({ darkMode }) {
         {/* todo list */}
         <ul
           className={`mt-2 rounded-xl ${
-            darkMode ? "bg-[#1E3A8A]" : "bg-[#E9D5FF]"
-          }  p-3 sm:px-4 sm:py-6 w-full h-full max-h-[340px] min-h-[250px]  sm:max-h-[450px] overflow-y-scroll scrollbar-custom shadow-lg ${
-            darkMode ? "shadow-[#22d3ee]" : "shadow-purple-400"
+            darkMode ? "bg-slate-800/40 " : "bg-transparent"
+          }  p-3 sm:px-4 sm:py-6 w-full h-full max-h-[340px] min-h-[250px] backdrop-blur-lg  sm:max-h-[450px] overflow-y-scroll scrollbar-custom shadow-md ${
+            darkMode ? "shadow-[#cccccc82]" : "shadow-[#0000003d]"
           }`}
         >
           {todos.length === 0 ? (
-            <li className="text-center text-purple-600-700 py-4 text-sm sm:text-2xl">
+            <li className={`text-center ${darkMode? "text-white" : "text-[#fb910583]"} py-4 text-sm sm:text-2xl`}>
               Your todo is empty ! Add and manage your todos here
             </li>
           ) : (
             todos.map((todo, index) => (
               <li
                 key={todo.id}
-                className={`border-b border-white p-2 flex gap-3 transition-all duration-300 ease-in-out justify-between rounded-xl  items-center ${
-                  todo.completed ? "show" : ""
+                className={`border-b border-white ${darkMode? "bg-slate-600/50" : "bg-[#fec57a83]/50"} py-3 px-4 my-2 flex gap-3 transition-all duration-300 ease-in-out justify-between rounded-xl  items-center ${
+                  todo.completed ? "show after:bg-[#ffffff3c]" : ""
                 } completed-todo  `}
               >
                 <div className="flex-1 flex flex-col gap-y-3">
+                  {/* todo name */}
                   <div
                     className={`${
                       darkMode ? "text-[#ffffff]" : "text-[#3B0764]"
                     }  ${
                       todo.completed
-                        ? "line-through text-gray-700 italic"
+                        ? "line-through italic"
                         : "no-underline"
-                    } text-base sm:text-lg font-semibold text-ellipsis overflow-hidden whitespace-nowrap`}
+                    } text-base sm:text-lg md:text-xl font-semibold text-ellipsis overflow-hidden whitespace-nowrap`}
                   >
-                    ({index + 1}) {todo.name}
+                    ({index + 1}) {todo.name} 
                   </div>
+                   {/* todo description */}
                   {todo.description && (
                     <div
                       className={`${
-                        darkMode ? "text-slate-300" : "text-[#69239e]"
+                        darkMode ? "text-slate-300" : "text-slate-800"
                       } ${
                         todo.completed
                           ? "line-through   italic"
@@ -172,10 +174,11 @@ function EditableTodoList({ darkMode }) {
                       {todo.description}
                     </div>
                   )}
+                   {/* todo deadline */}
                   {todo.deadline && (
                     <div
                       className={`  text-xs sm:text-sm mt-2 font-medium ${
-                        todo.completed ? "text-white" : "text-[#26a1f4]"
+                        todo.completed ? "text-white" : "text-[#3B82F6]"
                       }`}
                     >
                       📌 {new Date(todo.deadline).toLocaleString()}
@@ -183,9 +186,11 @@ function EditableTodoList({ darkMode }) {
                   )}
                 </div>
 
+                 
                 {/* Desktop buttons - for sm and larger screen*/}
-                <div className="hidden sm:flex gap-2">
-                  <button
+                <div className="hidden sm:flex flex-col gap-3">
+                 <div className="flex gap-2">
+                   <button
                     className="p-3 flex-shrink-0 bg-white rounded-full"
                     title="mark done"
                     onClick={() => toggleComplete(todo.id)}
@@ -193,18 +198,18 @@ function EditableTodoList({ darkMode }) {
                     <img
                       src={todo.completed ? "/remove.png" : "/checkmark.png"}
                       alt="checkmark"
-                      className="w-6 hover:scale-125 transition-transform duration-300 ease-in-out"
+                      className="w-7 hover:scale-125 transition-transform duration-300 ease-in-out hover:animate-spin"
                     />
                   </button>
                   <button
                     title="Edit todo"
                     onClick={() => editTodo(todo.id)}
-                    className="p-3 flex-shrink-0 bg-[#26a1f4] rounded-full border border-white"
+                    className="p-3 flex-shrink-0 bg-[#3B82F6] hover:bg-[#2563EB] rounded-full border border-white"
                   >
                     <img
                       src="/edit.png"
                       alt="Edit"
-                      className="w-6 hover:scale-125 transition-transform duration-300 ease-in-out"
+                      className="w-7 hover:scale-125 transition-transform duration-300 ease-in-out "
                     />
                   </button>
                   <button
@@ -213,11 +218,14 @@ function EditableTodoList({ darkMode }) {
                     className="bg-white border border-purple-600 text-white p-3 rounded-full transition-all duration-300 ease-in-out flex-shrink-0"
                   >
                     <img
-                      src="/dustbin.svg"
+                      src="/dustbin.png"
                       alt="Delete"
-                      className="w-6 h-6 hover:scale-125 transition-transform duration-300 ease-in-out"
+                      className="w-7 h-7 hover:scale-125 transition-transform duration-300 ease-in-out hover:animate-spin"
                     />
                   </button>
+                 </div>
+
+                  <span className={`text-sm px-4 font-mono font-bold ${todo.completed? "text-green-400 ": "text-orange-600"}   italic`}>({todo.completed? "Completed" : "Ongoing"})</span>
                 </div>
 
                 {/* Mobile dropdown - for mobile screen */}
@@ -265,7 +273,7 @@ function EditableTodoList({ darkMode }) {
                         }}
                         className="w-full flex items-center gap-2 p-2 hover:bg-gray-100 rounded text-left text-sm text-red-600"
                       >
-                        <img src="/dustbin.svg" alt="delete" className="w-4 h-4" />
+                        <img src="/dustbin.png" alt="delete" className="w-4 h-4" />
                         Delete
                       </button>
                     </div>

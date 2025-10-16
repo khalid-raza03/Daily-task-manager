@@ -14,7 +14,7 @@ function App() {
   }, [darkMode]);
 
   return (
-    <div className={`min-h-screen flex flex-col items-center  transition-all duration-300 ease-in-out justify-start pt-0 ${darkMode ? 'bg-[#0f172a]' : 'bg-[#cccccc]'}  `}>
+    <div className={`min-h-screen flex relative flex-col items-center bg-[url('https://www.transparenttextures.com/patterns/mirrored-squares.png')] transition-all duration-300 ease-in-out justify-start pt-0 ${darkMode ? 'bg-[#0f172a]' : 'bg-[#fec57a83]'}  `}>
       <Navbar darkMode={darkMode} setDarkMode={setDarkMode} />
       <EditableTodoList darkMode={darkMode} />
       

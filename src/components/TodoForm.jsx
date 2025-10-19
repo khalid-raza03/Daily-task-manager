@@ -16,6 +16,7 @@ function TodoForm({
   const [name, setName] = useState("");
   const [desc, setDesc] = useState("");
   const [deadline, setDeadline] = useState("");
+
   useEffect(() => {
     if (editingTodo) {
       setName(editingTodo.name);
@@ -86,9 +87,9 @@ function TodoForm({
                 setIsAnimating(false);
                 setTimeout(() => setIsModalOpen(false), 300);
               }}
-              className="absolute top-2 right-2 text-lg font-bold text-gray-500 bg-white px-4 py-2 rounded-full hover:text-gray-800 hover:scale-90 transition-all duration-200 ease-in-out"
+              className="absolute top-2 right-2 text-3xl font-bold text-gray-500 bg-white w-10 h-10 rounded-full hover:text-gray-800 hover:scale-90 transition-all duration-200 ease-in-out rotate-45"
             >
-              ✖
+              +
             </button>
             <h3 className="text-xl sm:text-3xl font-bold text-white mb-3">
               Enter Your Todo Details

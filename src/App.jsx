@@ -2,7 +2,6 @@ import EditableTodoList from "./components/EditableTodoList";
 import Navbar from "./components/Navbar";
 import { useEffect, useState } from "react";
 
-//function for filling data in components
 function App() {
    const [darkMode, setDarkMode] = useState(false);
   useEffect(() => {

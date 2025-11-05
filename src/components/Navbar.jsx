@@ -12,14 +12,16 @@ function Navbar({ darkMode, setDarkMode }) {
       <div className="container  mx-auto w-full flex justify-center items-center gap-4 sm:gap-6">
         <ul className="flex items-center gap-3 sm:gap-5  italic">
           <li
-            className={`text-sm sm:text-lg py-8 px-2 text-[#E0F2FE] ${
+            className={`text-sm sm:text-lg py-8 px-2 ${
+              darkMode ? "text-[#e0f2fe]" : "text-[#3b0764]"  }  ${
               darkMode ? "hover:bg-[#1E293B]" : "hover:bg-[#fdd6a2] hover:text-[#f98f04]"
             } cursor-pointer transition-all ease-in-out duration-300 font-semibold `}
           >
             Home
           </li>
           <li
-            className={`text-sm sm:text-lg py-8 px-2 text-[#E0F2FE] ${
+            className={`text-sm sm:text-lg py-8 px-2 ${
+              darkMode ? "text-[#e0f2fe]" : "text-[#3b0764]"  }  ${
               darkMode ? "hover:bg-[#1E293B]" : "hover:bg-[#fdd6a2] hover:text-[#f98f04]"
             } cursor-pointer transition-all ease-in-out duration-300 font-semibold `}
           >
@@ -32,7 +34,8 @@ function Navbar({ darkMode, setDarkMode }) {
             </a>
           </li>
           <li
-            className={`text-sm sm:text-lg py-8 px-2 text-[#E0F2FE] ${
+            className={`text-sm sm:text-lg py-8 px-2 ${
+              darkMode ? "text-[#e0f2fe]" : "text-[#3b0764]"  }  ${
               darkMode ? "hover:bg-[#1E293B]" : "hover:bg-[#fdd6a2] hover:text-[#f98f04]"
             } cursor-pointer transition-all ease-in-out duration-300 font-semibold `}
           >

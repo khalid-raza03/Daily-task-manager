@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import TodoForm from "./TodoForm";
 
 function EditableTodoList({ darkMode }) {
-
   //state for todos with local storage persistence
   const [todos, setTodos] = useState(() => {
     const saved = localStorage.getItem("todos");
@@ -54,7 +53,7 @@ function EditableTodoList({ darkMode }) {
   };
 
   const editTodo = (id) => {
-     // Store which todo is being edited
+    // Store which todo is being edited
     setEditingId(id);
   };
 
@@ -153,9 +152,9 @@ function EditableTodoList({ darkMode }) {
                 key={todo.id}
                 className={`border-b border-white ${
                   darkMode ? "bg-slate-600/50" : "bg-[#fec57a83]/20 "
-                } py-3 px-4 my-2 flex gap-3 transition-all duration-300 ease-in-out justify-between rounded-xl  items-center ${
+                } py-3 px-4 my-2 flex sm:flex-row flex-col gap-3 transition-all duration-300 ease-in-out justify-between rounded-xl items-start sm:items-center ${
                   todo.completed && darkMode
-                    ? "show after:bg-[#cccccc]/50"
+                    ? "show after:bg-[#cccccc]/75"
                     : todo.completed && !darkMode
                     ? "show after:bg-[#fec57a83]/50"
                     : ""
@@ -168,9 +167,16 @@ function EditableTodoList({ darkMode }) {
                       darkMode ? "text-[#ffffff]" : "text-[#3B0764]"
                     }  text-base sm:text-lg md:text-xl font-semibold text-ellipsis overflow-hidden whitespace-nowrap`}
                   >
-                     <span className={` ${
-                      todo.completed ? "line-through italic" : "no-underline"
-                    }`}>({index + 1}) {todo.name}</span>  <span className="text-xs italic text-slate-500">#{Math.floor(todo.id)}</span>
+                    <span
+                      className={` ${
+                        todo.completed ? "line-through italic" : "no-underline"
+                      }`}
+                    >
+                      ({index + 1}) {todo.name}
+                    </span>{" "}
+                    <span className="text-xs italic text-slate-500">
+                      #{Math.floor(todo.id)}
+                    </span>
                   </div>
                   {/* todo description */}
                   {todo.description && (
@@ -181,7 +187,7 @@ function EditableTodoList({ darkMode }) {
                         todo.completed
                           ? "line-through   italic"
                           : "no-underline"
-                      }  italic text-xs sm:text-sm text-wrap max-w-md mt-3 leading-6 tracking-wide text-justify`}
+                      }  italic text-xs md:text-sm text-wrap max-w-md mt-3 leading-4 tracking-tight text-justify`}
                     >
                       {todo.description}
                     </div>
@@ -200,7 +206,7 @@ function EditableTodoList({ darkMode }) {
 
                 {/* Desktop buttons - for sm and larger screen*/}
                 <div className="hidden sm:flex flex-col gap-3">
-                  <div className="flex gap-2">
+                  <div className=" gap-2 flex items-center">
                     <button
                       className="p-3 flex-shrink-0 bg-white rounded-full"
                       title="mark done"
@@ -231,22 +237,22 @@ function EditableTodoList({ darkMode }) {
                       <img
                         src="/dustbin.png"
                         alt="Delete"
-                        className="w-7 h-7 hover:scale-125 transition-transform duration-300 ease-in-out hover:animate-spin"
+                        className="w-7 h-7 hover:scale-125 transition-transform duration-300 ease-in-out "
                       />
                     </button>
+                    
                   </div>
-
                   <span
-                    className={`text-sm px-4 font-mono font-bold ${
-                      todo.completed ? "text-green-300 " : "text-orange-600"
-                    }   italic`}
-                  >
-                    ({todo.completed ? "Completed" : "Ongoing"})
-                  </span>
+                      className={`text-sm md:text-lg px-4 font-mono font-bold ${
+                        todo.completed ? "text-green-600 " : "text-orange-600"
+                      }   italic`}
+                    >
+                      {todo.completed ? "DONE" : "ONGOING"}
+                    </span>
                 </div>
 
                 {/* Mobile dropdown - for mobile screen */}
-                <div className="sm:hidden relative">
+                <div className="sm:hidden relative flex flex-row-reverse justify-between w-full items-center">
                   <button
                     title="manage todo options"
                     onClick={() =>
@@ -307,6 +313,13 @@ function EditableTodoList({ darkMode }) {
                       </button>
                     </div>
                   )}
+                  <span
+                      className={`text-md px-4 font-mono font-bold ${
+                        todo.completed ? "text-green-600 " : "text-orange-600"
+                      }   italic`}
+                    >
+                      {todo.completed ? "DONE" : "ONGOING"}
+                    </span>
                 </div>
               </li>
             ))
